@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tvTimer" type="id" />
+    <item name="btnStart" type="id" />
+    <item name="btnPause" type="id" />
+    <item name="btnReset" type="id" />
+</resources>

@@ -1,0 +1,2 @@
+- [x] Fix `ids.xml` resource definitions
+- [x] Verify build
