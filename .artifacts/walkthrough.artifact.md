@@ -1,30 +1,35 @@
-# Walkthrough - Fixing Resource Extraction Errors
+# Walkthrough - Fragment Navigation and Result Passing
 
-I have fixed the `com.android.aaptcompiler.ParsedResource` errors that were preventing your project from building.
+I have implemented the "Main" activity for your fragments, set up the navigation from `FragmentA` to `FragmentB`, and implemented data passing back to `FragmentA` using the `Fragment Result API`.
 
 ## Changes Made
 
-### Resources
-#### [ids.xml](file:///C:/Android2026/ANDROIDS26/AndroidsOneDay/app/src/main/res/values/ids.xml)
-- Removed invalid integer values from resource definitions of type `id`.
-- Converted `<item>` tags to self-closing tags, which is the correct syntax for declaring IDs in Android resources.
+### 1. Build Configuration
+- Enabled `viewBinding` in `build.gradle.kts`.
+- Added dependencies: `fragment-ktx` and `constraintlayout`.
 
-```diff
--    <item name="tvTimer" type="id">1</item>
--    <item name="btnStart" type="id">1</item>
--    <item name="btnPause" type="id">1</item>
--    <item name="btnReset" type="id">0</item>
-+    <item name="tvTimer" type="id" />
-+    <item name="btnStart" type="id" />
-+    <item name="btnPause" type="id" />
-+    <item name="btnReset" type="id" />
-```
+### 2. Main Activity (The Fragment Host)
+- **[activity_main.xml](file:///C:/Android2026/ANDROIDS26/AndroidsOneDay/app/src/main/res/layout/activity_main.xml)**: Replaced the old layout with a `FragmentContainerView` that automatically loads `FragmentA`.
+- **[MainActivity.kt](file:///C:/Android2026/ANDROIDS26/AndroidsOneDay/app/src/main/java/com/example/androidsoneday/MainActivity.kt)**: Cleaned up and implemented to use ViewBinding.
+
+### 3. Fragment A (Navigation & Result Listener)
+- **[FragmentA.kt](file:///C:/Android2026/ANDROIDS26/AndroidsOneDay/app/src/main/java/com/example/androidsoneday/FragmentA.kt)**:
+    - Fixed the `setFragmentResultListener` syntax error.
+    - Added navigation logic to `FragmentB`.
+- **[fragment_a.xml](file:///C:/Android2026/ANDROIDS26/AndroidsOneDay/app/src/main/res/layout/fragment_a.xml)**: Defined the UI with a `TextView` for results and a `Button` to navigate.
+
+### 4. Fragment B (Result Sender)
+- **[FragmentB.kt](file:///C:/Android2026/ANDROIDS26/AndroidsOneDay/app/src/main/java/com/example/androidsoneday/FragmentB.kt)**: Implemented sending data back using `setFragmentResult`.
+- **[fragment_b.xml](file:///C:/Android2026/ANDROIDS26/AndroidsOneDay/app/src/main/res/layout/fragment_b.xml)**: Added a button to trigger the result passing.
 
 ## Verification Results
 
 ### Automated Tests
 - Ran `gradlew app:assembleDebug`.
-- **Result:** Build finished successfully. The AAPT compiler no longer reports resource extraction errors.
+- **Result:** Build finished successfully. All binding classes generated and code compiled.
 
-> [!TIP]
-> Always define IDs in `ids.xml` without values. The Android build system (AAPT) will automatically generate the unique integer constants in the `R` class for you.
+### How to test manually:
+1. Run the app. `FragmentA` will appear.
+2. Click "Go to Fragment B".
+3. Click "Send Data back to A".
+4. You will see "Hello from Fragment B!" in `FragmentA`.

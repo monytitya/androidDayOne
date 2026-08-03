@@ -1,2 +1,6 @@
-- [x] Fix `ids.xml` resource definitions
-- [x] Verify build
+- [/] Configure project dependencies and ViewBinding
+- [ ] Setup `activity_main.xml` container
+- [ ] Implement `MainActivity` (Main for fragments)
+- [ ] Fix `FragmentA.kt`
+- [ ] Implement `FragmentB.kt` and `fragment_b.xml`
+- [ ] Verify build and functionality
