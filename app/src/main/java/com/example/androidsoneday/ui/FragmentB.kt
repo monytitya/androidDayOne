@@ -1,10 +1,11 @@
-package com.example.androidsoneday
+package com.example.androidsoneday.ui
 
 import android.os.Bundle
 import android.view.View
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
+import com.example.androidsoneday.R
 import com.example.androidsoneday.databinding.FragmentBBinding
 
 class FragmentB : Fragment(R.layout.fragment_b) {

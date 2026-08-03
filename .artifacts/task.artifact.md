@@ -1,6 +1,16 @@
-- [/] Configure project dependencies and ViewBinding
-- [ ] Setup `activity_main.xml` container
-- [ ] Implement `MainActivity` (Main for fragments)
-- [ ] Fix `FragmentA.kt`
-- [ ] Implement `FragmentB.kt` and `fragment_b.xml`
-- [ ] Verify build and functionality
+- [x] Build Configuration & Theming
+    - [x] Add Material library dependency
+    - [x] Update `themes.xml` to Material 3
+- [x] Package Restructuring
+    - [x] Create `components` and `materialui` packages
+    - [x] Move existing files to new packages
+    - [x] Create placeholders for Service, Receiver, and Provider
+- [x] Material UI Showcase Implementation
+    - [x] Create `MaterialShowcaseFragment` and layout
+    - [x] Implement showcase for Button, TextField, Card, Snackbar, Dialog, FAB
+- [x] Main Activity & Navigation
+    - [x] Add Bottom Navigation to `activity_main.xml`
+    - [x] Implement navigation logic in `MainActivity`
+- [x] Final Cleanup & Verification
+    - [x] Update all package references and imports
+    - [x] Verify build and UI

@@ -11,13 +11,26 @@
         android:theme="@style/Theme.AndroidsOneDay">
 
         <activity
-            android:name="com.example.androidsoneday.MainActivity"
+            android:name=".components.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".components.service.ExampleService"
+            android:exported="false" />
+
+        <receiver
+            android:name=".components.receiver.ExampleReceiver"
+            android:exported="false" />
+
+        <provider
+            android:name=".components.provider.ExampleProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false" />
 
     </application>
 

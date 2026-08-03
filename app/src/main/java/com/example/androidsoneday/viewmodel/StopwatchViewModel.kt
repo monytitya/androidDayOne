@@ -1,4 +1,4 @@
-package com.example.androidsoneday
+package com.example.androidsoneday.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -42,6 +42,4 @@ class StopwatchViewModel: ViewModel()
         seconds = 0
         onTick?.invoke(seconds)
     }
-
-
 }

@@ -1,35 +1,41 @@
-# Walkthrough - Fragment Navigation and Result Passing
+# Walkthrough - Restructured Project & Material UI Showcase
 
-I have implemented the "Main" activity for your fragments, set up the navigation from `FragmentA` to `FragmentB`, and implemented data passing back to `FragmentA` using the `Fragment Result API`.
+I have aligned the project structure with your diagram and implemented a comprehensive Material UI showcase using Material 3 standards.
 
 ## Changes Made
 
-### 1. Build Configuration
-- Enabled `viewBinding` in `build.gradle.kts`.
-- Added dependencies: `fragment-ktx` and `constraintlayout`.
+### 1. New Project Structure
+Organized the codebase into `components` and `materialui` packages as requested:
 
-### 2. Main Activity (The Fragment Host)
-- **[activity_main.xml](file:///C:/Android2026/ANDROIDS26/AndroidsOneDay/app/src/main/res/layout/activity_main.xml)**: Replaced the old layout with a `FragmentContainerView` that automatically loads `FragmentA`.
-- **[MainActivity.kt](file:///C:/Android2026/ANDROIDS26/AndroidsOneDay/app/src/main/java/com/example/androidsoneday/MainActivity.kt)**: Cleaned up and implemented to use ViewBinding.
+- **Components**:
+    - `Activity`: [MainActivity.kt](file:///C:/Android2026/ANDROIDS26/AndroidsOneDay/app/src/main/java/com/example/androidsoneday/components/activity/MainActivity.kt)
+    - `Service`: [ExampleService.kt](file:///C:/Android2026/ANDROIDS26/AndroidsOneDay/app/src/main/java/com/example/androidsoneday/components/service/ExampleService.kt)
+    - `Broadcast Receiver`: [ExampleReceiver.kt](file:///C:/Android2026/ANDROIDS26/AndroidsOneDay/app/src/main/java/com/example/androidsoneday/components/receiver/ExampleReceiver.kt)
+    - `Content Provider`: [ExampleProvider.kt](file:///C:/Android2026/ANDROIDS26/AndroidsOneDay/app/src/main/java/com/example/androidsoneday/components/provider/ExampleProvider.kt)
+- **Material UI**:
+    - Showcase Fragment: [MaterialShowcaseFragment.kt](file:///C:/Android2026/ANDROIDS26/AndroidsOneDay/app/src/main/java/com/example/androidsoneday/materialui/MaterialShowcaseFragment.kt)
 
-### 3. Fragment A (Navigation & Result Listener)
-- **[FragmentA.kt](file:///C:/Android2026/ANDROIDS26/AndroidsOneDay/app/src/main/java/com/example/androidsoneday/FragmentA.kt)**:
-    - Fixed the `setFragmentResultListener` syntax error.
-    - Added navigation logic to `FragmentB`.
-- **[fragment_a.xml](file:///C:/Android2026/ANDROIDS26/AndroidsOneDay/app/src/main/res/layout/fragment_a.xml)**: Defined the UI with a `TextView` for results and a `Button` to navigate.
+### 2. Material UI Implementation
+Implemented a showcase that demonstrates all components from your list:
+- **Button**: Standard and Outlined Material 3 buttons.
+- **TextField**: Filled and Outlined text inputs with Material 3 styling.
+- **Card**: Material Cards with elevation and padding.
+- **FAB**: Floating Action Button with snackbar interaction.
+- **Bottom Navigation**: Integrated into `MainActivity` to switch between app sections.
+- **Snackbar**: Actionable message implementation.
+- **Dialog**: Material 3 themed Alert Dialog.
 
-### 4. Fragment B (Result Sender)
-- **[FragmentB.kt](file:///C:/Android2026/ANDROIDS26/AndroidsOneDay/app/src/main/java/com/example/androidsoneday/FragmentB.kt)**: Implemented sending data back using `setFragmentResult`.
-- **[fragment_b.xml](file:///C:/Android2026/ANDROIDS26/AndroidsOneDay/app/src/main/res/layout/fragment_b.xml)**: Added a button to trigger the result passing.
+### 3. Theming & Dependencies
+- Upgraded project to **Material 3** in `themes.xml`.
+- Added the Google Material library dependency in `build.gradle.kts`.
 
 ## Verification Results
 
 ### Automated Tests
 - Ran `gradlew app:assembleDebug`.
-- **Result:** Build finished successfully. All binding classes generated and code compiled.
+- **Result:** Build finished successfully. All Material 3 components are correctly referenced and the new package structure is valid.
 
-### How to test manually:
-1. Run the app. `FragmentA` will appear.
-2. Click "Go to Fragment B".
-3. Click "Send Data back to A".
-4. You will see "Hello from Fragment B!" in `FragmentA`.
+### Manual Verification
+1. Launch the app.
+2. Use the **Bottom Navigation** to switch between "Components" (your existing Fragment A) and "Material UI".
+3. In the "Material UI" section, interact with the Buttons, FAB, and TextFields to see Material 3 in action.
